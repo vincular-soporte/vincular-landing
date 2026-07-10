@@ -14,11 +14,9 @@
   --primary:#4C7A63;--primary-dark:#375A48;--primary-light:#DCEAE1;--primary-xlight:#F1F6F3;
   --text-primary:#282521;--text-secondary:#6C6459;--text-muted:#A79E90;
   --bg-page:#F7F4EE;--bg-card:#FFFFFF;--border:#E7E0D3;
-  --slot-free-bg:#DEEFE5;--slot-free-tx:#1F5C41;
-  --slot-taken-bg:#F1EEE6;--slot-taken-tx:#B8AF9E;
 }
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:var(--text-primary);min-height:100vh;display:flex;justify-content:center;padding:36px 16px;font-size:14px;}
-.wrap{max-width:560px;width:100%;}
+.wrap{max-width:520px;width:100%;}
 .hdr{text-align:center;margin-bottom:26px;}
 .hdr-icon{width:50px;height:50px;margin:0 auto 12px;}
 .hdr h1{font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:var(--text-primary);}
@@ -36,45 +34,16 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:va
 .check-row{display:flex;align-items:center;gap:9px;background:var(--primary-xlight);border-radius:9px;padding:11px 14px;margin-bottom:6px;}
 .check-row input{width:16px;height:16px;accent-color:var(--primary);cursor:pointer;}
 .check-row label{font-size:13px;color:var(--text-primary);cursor:pointer;}
-.freq-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.freq-opt{border:1.5px solid var(--border);border-radius:9px;padding:10px 6px;text-align:center;font-size:12px;font-weight:600;color:var(--text-secondary);cursor:pointer;transition:all .12s;}
+.freq-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.freq-opt{border:1.5px solid var(--border);border-radius:9px;padding:10px 6px;text-align:center;font-size:12.5px;font-weight:600;color:var(--text-secondary);cursor:pointer;transition:all .12s;}
 .freq-opt.sel{border-color:var(--primary);background:var(--primary-xlight);color:var(--primary-dark);}
 
-.avail-toggle{width:100%;padding:13px;border-radius:10px;border:1.5px dashed var(--border);background:transparent;font-size:13.5px;font-weight:600;color:var(--primary-dark);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;}
-.avail-toggle:hover{background:var(--primary-xlight);}
-.avail-panel{max-height:0;overflow:hidden;transition:max-height .3s ease;}
-.avail-panel.open{max-height:600px;overflow-y:visible;}
-.avail-inner{padding-top:14px;}
-.mon-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.mon-title{font-size:13px;font-weight:600;}
-.mon-nav-btn{width:22px;height:22px;border-radius:6px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:12px;color:var(--text-secondary);}
-.mon-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;margin-bottom:14px;}
-.mon-dow{font-size:9.5px;color:var(--text-muted);font-weight:700;padding-bottom:4px;}
-.mon-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12px;border-radius:8px;cursor:pointer;border:1px solid transparent;color:var(--text-secondary);}
-.mon-day.has-slots{background:var(--slot-free-bg);color:var(--slot-free-tx);font-weight:600;}
-.mon-day.no-slots{color:var(--text-muted);opacity:.4;cursor:default;}
-.mon-day.selected{background:var(--primary)!important;color:#fff!important;}
-.mon-day.empty{visibility:hidden;}
-.mon-day.past{visibility:hidden;}
-.slots-title{font-size:12.5px;font-weight:600;margin-bottom:8px;color:var(--text-secondary);}
-.slots-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;}
-.slot{padding:9px 8px;border-radius:8px;text-align:center;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid transparent;}
-.slot.free{background:var(--slot-free-bg);color:var(--slot-free-tx);}
-.slot.free:hover{border-color:var(--slot-free-tx);}
-.slot.taken{background:var(--slot-taken-bg);color:var(--slot-taken-tx);cursor:not-allowed;text-decoration:line-through;}
-.slot.chosen{background:var(--primary);color:#fff;}
-.slot small{display:block;font-weight:500;opacity:.8;font-size:10px;}
-.no-slots-msg{font-size:12.5px;color:var(--text-muted);padding:10px 0;}
-.chosen-summary{margin-top:14px;background:var(--primary-xlight);border-radius:9px;padding:11px 14px;font-size:12.5px;color:var(--primary-dark);font-weight:600;display:none;}
-.chosen-summary.show{display:block;}
-.loading-msg{font-size:12.5px;color:var(--text-muted);padding:10px 0;text-align:center;}
+.notice{background:var(--primary-xlight);border:1px solid var(--primary-light);border-radius:10px;padding:12px 14px;font-size:12.5px;color:var(--primary-dark);line-height:1.5;margin-top:16px;}
+.notice b{font-weight:700;}
 
-.btn-submit{width:100%;padding:13px;border-radius:10px;background:var(--primary);color:#fff;border:none;font-size:14.5px;font-weight:700;cursor:pointer;margin-top:22px;}
+.btn-submit{width:100%;padding:13px;border-radius:10px;background:var(--primary);color:#fff;border:none;font-size:14.5px;font-weight:700;cursor:pointer;margin-top:20px;}
 .btn-submit:hover{background:var(--primary-dark);}
 .btn-submit:disabled{opacity:.5;cursor:not-allowed;}
-.legend{display:flex;gap:16px;font-size:11px;color:var(--text-muted);margin-top:10px;justify-content:center;}
-.legend span{display:inline-flex;align-items:center;gap:5px;}
-.legend .dot{width:8px;height:8px;border-radius:50%;}
 .err-box{background:#F7DEDD;color:#9B3B34;border-radius:9px;padding:10px 14px;font-size:12.5px;margin-top:12px;display:none;}
 .err-box.show{display:block;}
 
@@ -89,7 +58,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:va
   <div class="hdr">
     <svg class="hdr-icon" viewBox="0 0 40 40" fill="none"><circle cx="15" cy="20" r="9" fill="#4C7A63"/><circle cx="25" cy="20" r="9" fill="#DCEAE1" fill-opacity="0.85"/></svg>
     <h1>Solicitar un turno</h1>
-    <p>Completá tus datos y elegí el día y horario que mejor te quede. Un profesional del equipo va a confirmar tu turno a la brevedad.</p>
+    <p>Completá tus datos y contanos qué día y horario te quedarían mejor. Tu solicitud entra en lista de espera y el equipo te confirma apenas haya lugar.</p>
   </div>
 
   <div class="card" id="formCard">
@@ -110,50 +79,33 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:va
     <div class="freq-row" id="freqRow">
       <div class="freq-opt sel" data-f="Semanal">Semanal</div>
       <div class="freq-opt" data-f="Quincenal">Quincenal</div>
-      <div class="freq-opt" data-f="Mensual">Mensual</div>
-      <div class="freq-opt" data-f="Consulta única">Consulta única</div>
     </div>
 
-    <div class="sec-title">Especialidad y profesional</div>
+    <div class="sec-title">Día y horario de preferencia</div>
     <div class="form-grid">
-      <div class="fg"><label>Especialidad</label>
-        <select id="fEspecialidad" onchange="onFiltroChange()">
-          <option value="cualquiera">Cualquiera disponible</option>
+      <div class="fg"><label>Día *</label>
+        <select id="fDia">
+          <option value="">Elegí un día</option>
+          <option value="1">Lunes</option>
+          <option value="2">Martes</option>
+          <option value="3">Miércoles</option>
+          <option value="4">Jueves</option>
+          <option value="5">Viernes</option>
         </select>
       </div>
-      <div class="fg"><label>Profesional (opcional)</label>
-        <select id="fProfesional" onchange="onFiltroChange()">
-          <option value="cualquiera">Sin preferencia</option>
+      <div class="fg"><label>Horario *</label>
+        <select id="fHora">
+          <option value="">Elegí un horario</option>
         </select>
       </div>
     </div>
 
-    <div class="sec-title">Día y horario</div>
-    <button class="avail-toggle" id="availBtn" onclick="toggleAvail()">
-      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
-      Ver disponibilidad y elegir turno
-    </button>
-    <div class="avail-panel" id="availPanel">
-      <div class="avail-inner">
-        <div class="mon-hdr">
-          <div class="mon-title" id="monTitle"></div>
-          <div style="display:flex;gap:4px">
-            <button class="mon-nav-btn" onclick="shiftMonth(-1)">‹</button>
-            <button class="mon-nav-btn" onclick="shiftMonth(1)">›</button>
-          </div>
-        </div>
-        <div class="mon-grid" id="monGrid"></div>
-        <div id="slotsArea"></div>
-        <div class="legend">
-          <span><span class="dot" style="background:var(--slot-free-tx)"></span>Con disponibilidad</span>
-          <span><span class="dot" style="background:var(--text-muted)"></span>Sin turnos</span>
-        </div>
-        <div class="chosen-summary" id="chosenSummary"></div>
-      </div>
+    <div class="notice">
+      <b>Importante:</b> esta es una selección de preferencia, no una reserva confirmada. No garantiza que el turno esté disponible ni que vaya a asignarse en ese día/horario exacto — tu solicitud ingresa a una <b>lista de espera</b> y el equipo la revisa y confirma según la disponibilidad real.
     </div>
 
     <div class="err-box" id="errBox"></div>
-    <button class="btn-submit" id="submitBtn" onclick="submitForm()" disabled>Enviar solicitud de turno</button>
+    <button class="btn-submit" id="submitBtn" onclick="submitForm()">Enviar solicitud de turno</button>
   </div>
 </div>
 
@@ -164,30 +116,21 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:va
 const SUPABASE_URL      = 'https://wsafuvhblwezcknifruq.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_6Anpnvb5x-XXET1Q2PHcSA_Rxg0tlYM';
 const SEDE_ID = 'ec93f77f-7b64-4714-a2a8-ed93a573d5b7'; // Lic. Schwab
-
-// Oferta horaria por profesional: 0=domingo … 6=sábado. Editar a mano según cada centro.
-const HORAS_LUN_VIE = ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];
-const OFERTA = {
-  'Lic. Laila Schwab': {especialidad:'Psicología', dias:{1:HORAS_LUN_VIE,2:HORAS_LUN_VIE,3:HORAS_LUN_VIE,4:HORAS_LUN_VIE,5:HORAS_LUN_VIE}},
-};
+const PROFESIONAL = 'Lic. Laila Schwab'; // único profesional de este centro
 // ══════════════════════════════════════════════════════════════════════════
 
 const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// Poblar selects de especialidad/profesional desde OFERTA
-(function initSelects(){
-  const esps = [...new Set(Object.values(OFERTA).map(o=>o.especialidad))];
-  const espSel = document.getElementById('fEspecialidad');
-  esps.forEach(e=>espSel.insertAdjacentHTML('beforeend','<option value="'+e+'">'+e+'</option>'));
-  const proSel = document.getElementById('fProfesional');
-  Object.keys(OFERTA).forEach(p=>proSel.insertAdjacentHTML('beforeend','<option value="'+p+'">'+p+'</option>'));
+// Horarios de 09:00 a 18:00 (última entrada, cierre 19:00), cada 1 hora
+(function initHoras(){
+  const sel = document.getElementById('fHora');
+  for(let h=9; h<=18; h++){
+    const label = String(h).padStart(2,'0')+':00';
+    sel.insertAdjacentHTML('beforeend','<option value="'+label+'">'+label+'</option>');
+  }
 })();
 
-let ocupados = []; // [{profesional,fecha,hora}] desde la vista pública
-let calMonth = new Date().getMonth(), calYear = new Date().getFullYear();
-let selectedDate=null, selectedSlot=null, selectedFreq='Semanal';
-let loadedMonthKey=null;
-
+let selectedFreq='Semanal';
 document.querySelectorAll('.freq-opt').forEach(el=>{
   el.onclick=()=>{
     document.querySelectorAll('.freq-opt').forEach(x=>x.classList.remove('sel'));
@@ -196,121 +139,18 @@ document.querySelectorAll('.freq-opt').forEach(el=>{
   };
 });
 
-function onFiltroChange(){ selectedDate=null; selectedSlot=null; renderCalendar(); }
-
-function toggleAvail(){
-  const panel=document.getElementById('availPanel');
-  panel.classList.toggle('open');
-  if(panel.classList.contains('open')) loadMonthAndRender();
+// Calcula la próxima fecha real que caiga en el día de semana elegido
+// (solo para completar la columna `fecha`, que es obligatoria; el día/hora
+// reales los define el centro al revisar la lista de espera)
+function proximaFechaParaDia(weekday){
+  const d = new Date();
+  d.setHours(0,0,0,0);
+  const actual = d.getDay();
+  let diff = weekday - actual;
+  if(diff <= 0) diff += 7;
+  d.setDate(d.getDate()+diff);
+  return d.toISOString().slice(0,10);
 }
-
-async function loadMonthAndRender(){
-  const monthKey = calYear+'-'+calMonth;
-  if(loadedMonthKey!==monthKey){
-    document.getElementById('monGrid').innerHTML = '<div class="loading-msg" style="grid-column:1/-1">Cargando disponibilidad...</div>';
-    const first = new Date(calYear, calMonth, 1).toISOString().slice(0,10);
-    const last  = new Date(calYear, calMonth+1, 0).toISOString().slice(0,10);
-    try{
-      const{data,error}=await db.from('turnos_ocupados_publico').select('*').gte('fecha',first).lte('fecha',last);
-      if(error)throw error;
-      ocupados = data||[];
-      loadedMonthKey = monthKey;
-    }catch(e){
-      document.getElementById('monGrid').innerHTML = '<div class="loading-msg" style="grid-column:1/-1;color:#9B3B34">No se pudo cargar la disponibilidad. Recargá la página.</div>';
-      return;
-    }
-  }
-  renderCalendar();
-}
-
-function profesionalesFiltrados(){
-  const esp = document.getElementById('fEspecialidad').value;
-  const pro = document.getElementById('fProfesional').value;
-  return Object.entries(OFERTA).filter(([nombre,o])=>
-    (pro==='cualquiera'||nombre===pro) && (esp==='cualquiera'||o.especialidad===esp)
-  );
-}
-
-function slotsLibresDelDia(dateStr, weekday){
-  const profs = profesionalesFiltrados();
-  const libres = [];
-  profs.forEach(([nombre,o])=>{
-    (o.dias[weekday]||[]).forEach(hora=>{
-      const ocupado = ocupados.some(t=>t.profesional===nombre && t.fecha===dateStr && t.hora.slice(0,5)===hora);
-      if(!ocupado) libres.push({hora,profesional:nombre});
-    });
-  });
-  return libres.sort((a,b)=>a.hora.localeCompare(b.hora));
-}
-
-function renderCalendar(){
-  const meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-  document.getElementById('monTitle').textContent = meses[calMonth]+' '+calYear;
-  const grid=document.getElementById('monGrid');
-  grid.innerHTML = ['L','M','M','J','V','S','D'].map(d=>'<div class="mon-dow">'+d+'</div>').join('');
-  const firstDay = new Date(calYear,calMonth,1);
-  let leading = firstDay.getDay()-1; if(leading<0)leading=6;
-  for(let i=0;i<leading;i++) grid.innerHTML+='<div class="mon-day empty"></div>';
-  const daysInMonth = new Date(calYear,calMonth+1,0).getDate();
-  const today = new Date(); today.setHours(0,0,0,0);
-  for(let d=1; d<=daysInMonth; d++){
-    const date = new Date(calYear,calMonth,d);
-    const dateStr = date.toISOString().slice(0,10);
-    const isPast = date < today;
-    const weekday = date.getDay();
-    const libres = isPast?[]:slotsLibresDelDia(dateStr, weekday);
-    const has = libres.length>0;
-    const cls='mon-day '+(isPast?'past':(has?'has-slots':'no-slots'))+(dateStr===selectedDate?' selected':'');
-    grid.innerHTML += '<div class="'+cls+'" '+(has&&!isPast?'onclick="selectDay(\''+dateStr+'\','+weekday+')"':'')+'>'+d+'</div>';
-  }
-  if(selectedDate) selectDay(selectedDate, new Date(selectedDate+'T00:00').getDay(), true);
-  else document.getElementById('slotsArea').innerHTML='';
-}
-
-function shiftMonth(delta){
-  calMonth+=delta;
-  if(calMonth<0){calMonth=11;calYear--;}
-  if(calMonth>11){calMonth=0;calYear++;}
-  loadedMonthKey=null; selectedDate=null; selectedSlot=null;
-  loadMonthAndRender();
-}
-
-function selectDay(dateStr, weekday, skipRerender){
-  selectedDate=dateStr; selectedSlot=null;
-  if(!skipRerender) renderCalendar();
-  const libres = slotsLibresDelDia(dateStr, weekday);
-  const [y,m,d] = dateStr.split('-');
-  const area=document.getElementById('slotsArea');
-  if(libres.length===0){
-    area.innerHTML = '<div class="no-slots-msg">No hay horarios disponibles ese día.</div>';
-  } else {
-    area.innerHTML = '<div class="slots-title">Horarios disponibles el '+d+'/'+m+'</div>'
-      + '<div class="slots-grid">'+libres.map(s=>
-          '<div class="slot free" onclick="chooseSlot(\''+s.hora+'\',\''+s.profesional+'\',this)">'+s.hora+'<small>'+s.profesional+'</small></div>'
-        ).join('')+'</div>';
-  }
-  updateSummary();
-  checkReady();
-}
-
-let selectedProfesionalFinal=null;
-function chooseSlot(hora,profesional,el){
-  document.querySelectorAll('.slot').forEach(s=>s.classList.remove('chosen'));
-  el.classList.add('chosen');
-  selectedSlot=hora; selectedProfesionalFinal=profesional;
-  updateSummary();
-  checkReady();
-}
-
-function updateSummary(){
-  const box=document.getElementById('chosenSummary');
-  if(selectedDate && selectedSlot){
-    const [y,m,d]=selectedDate.split('-');
-    box.textContent='✓ Turno elegido: '+d+'/'+m+' a las '+selectedSlot+' hs con '+selectedProfesionalFinal+' ('+selectedFreq+')';
-    box.classList.add('show');
-  } else box.classList.remove('show');
-}
-function checkReady(){ document.getElementById('submitBtn').disabled = !(selectedDate && selectedSlot); }
 
 async function submitForm(){
   const errBox=document.getElementById('errBox');
@@ -321,11 +161,16 @@ async function submitForm(){
   const wa=document.getElementById('fWhatsapp').value.trim();
   const yaHizo=document.getElementById('fYaHizo').checked;
   const motivo=document.getElementById('fMotivo').value.trim();
-  if(!nombre||!apellido||!edad||!wa||!motivo){alert('Completá todos los campos obligatorios (*).');return;}
-  if(!selectedDate||!selectedSlot){alert('Elegí un día y horario disponible.');return;}
-  if(SEDE_ID.includes('REEMPLAZAR')){errBox.textContent='Este formulario todavía no tiene configurada la sede. Contactá al centro directamente.';errBox.classList.add('show');return;}
+  const diaVal=document.getElementById('fDia').value;
+  const horaVal=document.getElementById('fHora').value;
+  const diaTexto=document.getElementById('fDia').selectedOptions[0]?.textContent;
 
-  const notas = `Solicitud vía formulario público
+  if(!nombre||!apellido||!edad||!wa||!motivo){alert('Completá todos los campos obligatorios (*).');return;}
+  if(!diaVal||!horaVal){alert('Elegí un día y un horario de preferencia.');return;}
+
+  const notas = `Solicitud vía formulario público — LISTA DE ESPERA (no confirmado)
+Día de preferencia: ${diaTexto}
+Horario de preferencia: ${horaVal}
 Edad: ${edad}
 WhatsApp: ${wa}
 ¿Ya hizo terapia antes?: ${yaHizo?'Sí':'No'}
@@ -337,9 +182,9 @@ Motivo de consulta: ${motivo}`;
 
   const{error}=await db.from('turnos').insert({
     paciente: nombre+' '+apellido,
-    profesional: selectedProfesionalFinal,
-    fecha: selectedDate,
-    hora: selectedSlot,
+    profesional: PROFESIONAL,
+    fecha: proximaFechaParaDia(Number(diaVal)),
+    hora: horaVal,
     importe: 0,
     estado: 'pendiente_confirmar',
     notas: notas,
@@ -358,8 +203,8 @@ Motivo de consulta: ${motivo}`;
     <div class="success">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
       <h2>¡Listo, ${nombre}!</h2>
-      <p>Tu solicitud para el <b>${selectedDate.split('-').reverse().slice(0,2).join('/')} a las ${selectedSlot} hs</b> con <b>${selectedProfesionalFinal}</b> fue enviada.<br>
-      El equipo va a confirmarte por WhatsApp al <b>${wa}</b> a la brevedad.</p>
+      <p>Tu solicitud para los <b>${diaTexto} a las ${horaVal} hs</b> (${selectedFreq.toLowerCase()}) fue registrada en nuestra <b>lista de espera</b>.<br><br>
+      Esto no confirma el turno: el equipo va a revisar la disponibilidad real y te va a contactar por WhatsApp al <b>${wa}</b> para confirmarlo o proponerte otra alternativa.</p>
     </div>`;
 }
 </script>
