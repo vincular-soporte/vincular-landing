@@ -182,28 +182,22 @@ async function submitForm(){
   if(!nombre||!apellido||!edad||!wa||!motivo){alert('Completá todos los campos obligatorios (*).');return;}
   if(!diaVal||!horaVal){alert('Elegí un día y un horario de preferencia.');return;}
 
-  const notas = `Solicitud vía formulario público — LISTA DE ESPERA (no confirmado)
-Día de preferencia: ${diaTexto}
-Horario de preferencia: ${horaVal}
-Modalidad: ${selectedModalidad}
-Edad: ${edad}
-WhatsApp: ${wa}
-¿Ya hizo terapia antes?: ${yaHizo?'Sí':'No'}
-Frecuencia deseada: ${selectedFreq}
-Motivo de consulta: ${motivo}`;
-
   const submitBtn=document.getElementById('submitBtn');
   submitBtn.disabled=true; submitBtn.textContent='Enviando...';
 
-  const{error}=await db.from('turnos').insert({
-    paciente: nombre+' '+apellido,
-    profesional: PROFESIONAL,
-    fecha: proximaFechaParaDia(Number(diaVal)),
-    hora: horaVal,
-    importe: 0,
-    estado: 'pendiente_confirmar',
-    notas: notas,
+  const{error}=await db.from('solicitudes_turno_publico').insert({
     sede_id: SEDE_ID,
+    nombre: nombre,
+    apellido: apellido,
+    edad: Number(edad),
+    whatsapp: wa,
+    ya_hizo_terapia: yaHizo,
+    motivo: motivo,
+    modalidad: selectedModalidad,
+    frecuencia: selectedFreq,
+    dia_preferido: diaTexto,
+    hora_preferido: horaVal,
+    estado: 'pendiente',
   });
 
   if(error){
