@@ -76,7 +76,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:va
     <div class="fg full"><label>Motivo de la consulta *</label><textarea id="fMotivo" placeholder="Contanos brevemente qué te gustaría trabajar..."></textarea></div>
 
     <div class="sec-title">Modalidad</div>
-    <div class="freq-row" id="freqRow">
+    <div class="freq-row" id="modRow">
       <div class="freq-opt sel" data-f="Presencial">Presencial</div>
       <div class="freq-opt" data-f="Virtual">Virtual</div>
     </div>
@@ -137,11 +137,19 @@ const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 })();
 
 let selectedFreq='Semanal';
-document.querySelectorAll('.freq-opt').forEach(el=>{
+let selectedModalidad='Presencial';
+document.querySelectorAll('#freqRow .freq-opt').forEach(el=>{
   el.onclick=()=>{
-    document.querySelectorAll('.freq-opt').forEach(x=>x.classList.remove('sel'));
+    document.querySelectorAll('#freqRow .freq-opt').forEach(x=>x.classList.remove('sel'));
     el.classList.add('sel');
     selectedFreq=el.dataset.f;
+  };
+});
+document.querySelectorAll('#modRow .freq-opt').forEach(el=>{
+  el.onclick=()=>{
+    document.querySelectorAll('#modRow .freq-opt').forEach(x=>x.classList.remove('sel'));
+    el.classList.add('sel');
+    selectedModalidad=el.dataset.f;
   };
 });
 
@@ -177,6 +185,7 @@ async function submitForm(){
   const notas = `Solicitud vía formulario público — LISTA DE ESPERA (no confirmado)
 Día de preferencia: ${diaTexto}
 Horario de preferencia: ${horaVal}
+Modalidad: ${selectedModalidad}
 Edad: ${edad}
 WhatsApp: ${wa}
 ¿Ya hizo terapia antes?: ${yaHizo?'Sí':'No'}
@@ -209,7 +218,7 @@ Motivo de consulta: ${motivo}`;
     <div class="success">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
       <h2>¡Listo, ${nombre}!</h2>
-      <p>Tu solicitud para los <b>${diaTexto} a las ${horaVal} hs</b> (${selectedFreq.toLowerCase()}) fue registrada en mi <b>lista de espera</b>.<br><br>
+      <p>Tu solicitud para los <b>${diaTexto} a las ${horaVal} hs</b> (${selectedModalidad.toLowerCase()}, ${selectedFreq.toLowerCase()}) fue registrada en mi <b>lista de espera</b>.<br><br>
       Esto no confirma el turno: según la disponibilidad te escribo por WhatsApp al <b>${wa}</b> para confirmarlo o proponerte otra alternativa.</p>
     </div>`;
 }
