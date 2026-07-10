@@ -58,7 +58,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:va
   <div class="hdr">
     <svg class="hdr-icon" viewBox="0 0 40 40" fill="none"><circle cx="15" cy="20" r="9" fill="#4C7A63"/><circle cx="25" cy="20" r="9" fill="#DCEAE1" fill-opacity="0.85"/></svg>
     <h1>Solicitar un turno</h1>
-    <p>Completá tus datos y contanos qué día y horario te quedarían mejor. Tu solicitud entra en lista de espera y el equipo te confirma apenas haya lugar.</p>
+    <p>Dejame tus datos y contame que día y horario te gustaría tener la sesión. Tu solicitud ingresa a la lista de espera. </p>
   </div>
 
   <div class="card" id="formCard">
@@ -74,6 +74,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:va
       <label for="fYaHizo">Ya hice terapia antes</label>
     </div>
     <div class="fg full"><label>Motivo de la consulta *</label><textarea id="fMotivo" placeholder="Contanos brevemente qué te gustaría trabajar..."></textarea></div>
+
+    <div class="sec-title">Modalidad</div>
+    <div class="freq-row" id="freqRow">
+      <div class="freq-opt sel" data-f="Presencial">Presencial</div>
+      <div class="freq-opt" data-f="Virtual">Virtual</div>
+    </div>
 
     <div class="sec-title">Frecuencia deseada</div>
     <div class="freq-row" id="freqRow">
@@ -101,7 +107,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-page);color:va
     </div>
 
     <div class="notice">
-      <b>Importante:</b> esta es una selección de preferencia, no una reserva confirmada. No garantiza que el turno esté disponible ni que vaya a asignarse en ese día/horario exacto — tu solicitud ingresa a una <b>lista de espera</b> y el equipo la revisa y confirma según la disponibilidad real.
+      <b>A considerar:</b> Tu solicitud queda a la espera de disponibilidad en la agenda. Este formulario no es una confirmación ni reserva del turno. Te escribo por <b>WhatsApp</b> en caso de confirmar el turno. <b>Gracias por tu confianza</b>.
     </div>
 
     <div class="err-box" id="errBox"></div>
@@ -203,8 +209,8 @@ Motivo de consulta: ${motivo}`;
     <div class="success">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
       <h2>¡Listo, ${nombre}!</h2>
-      <p>Tu solicitud para los <b>${diaTexto} a las ${horaVal} hs</b> (${selectedFreq.toLowerCase()}) fue registrada en nuestra <b>lista de espera</b>.<br><br>
-      Esto no confirma el turno: el equipo va a revisar la disponibilidad real y te va a contactar por WhatsApp al <b>${wa}</b> para confirmarlo o proponerte otra alternativa.</p>
+      <p>Tu solicitud para los <b>${diaTexto} a las ${horaVal} hs</b> (${selectedFreq.toLowerCase()}) fue registrada en mi <b>lista de espera</b>.<br><br>
+      Esto no confirma el turno: según la disponibilidad te escribo por WhatsApp al <b>${wa}</b> para confirmarlo o proponerte otra alternativa.</p>
     </div>`;
 }
 </script>
